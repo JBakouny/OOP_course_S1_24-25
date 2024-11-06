@@ -16,7 +16,7 @@ void afficher(const Cours& c) {
 struct Etudiant {
     string nom;
     int age;
-    vector<Cours*> matieres;
+    vector<Cours> matieres;
 };
 
 void afficher(const Etudiant& e) {
@@ -24,7 +24,7 @@ void afficher(const Etudiant& e) {
     cout << "age: " << e.age << " ans" << endl;
     cout << "Matieres:" << endl;
     for (size_t i = 0; i < e.matieres.size(); ++i) {
-        afficher(*e.matieres[i]);
+        afficher(e.matieres[i]);
     }
     cout << endl;
 }
@@ -39,15 +39,15 @@ int main()
     progFun.nom = "ProgFun";
     progFun.credits = 4;
 
-    vector<Cours*> matieresJean = { &poo, &progPar };
+    vector<Cours> matieresJean = { poo, progPar };
     Etudiant jean = { "Jean", 20, matieresJean };
 
     Etudiant pierre;
     pierre.nom = "Pierre";
     pierre.age = 21;
 
-    pierre.matieres.push_back(&poo);
-    pierre.matieres.push_back(&progFun);
+    pierre.matieres.push_back(poo);
+    pierre.matieres.push_back(progFun);
 
     afficher(jean);
     afficher(pierre);
