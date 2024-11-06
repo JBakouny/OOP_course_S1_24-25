@@ -37,22 +37,22 @@ public:
     {}
 
     void add(const Cours& c) {
-        matieres.push_back(c);
+        matieres.push_back(&c);
     }
 
     void afficher() const {
         cout << nom << endl;
         cout << "age: " << age << " ans" << endl;
         cout << "Matieres:" << endl;
-        for (const auto& c : matieres) {
-            c.afficher();
+        for (const Cours* c : matieres) {
+            c->afficher();
         }
         cout << endl;
     }
 private:
     string nom;
     int age;
-    vector<Cours> matieres;
+    vector<const Cours*> matieres;
 };
 
 
@@ -79,8 +79,6 @@ int main()
 
     jean.afficher();
     pierre.afficher();
-
-
 };
 
   /*  
