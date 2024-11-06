@@ -3,15 +3,27 @@
 #include <vector>
 using namespace std;
 
-struct Cours {
+class Cours {
+public:
+    void afficher() const {
+        cout << "Cours: " << nom << ", credits: " << credits << endl;
+    }
+
+    void setNom(const string & nom) {
+        this->nom = nom;
+    }
+
+    void setCredits(int c) {
+        credits = c;
+    }
+
+private:
     string nom;
     int credits;
 };
 
 
-void afficher(const Cours& c) {
-    cout << "Cours: " << c.nom << ", credits: " << c.credits << endl;
-}
+
 
 struct Etudiant {
     string nom;
@@ -19,25 +31,38 @@ struct Etudiant {
     vector<Cours> matieres;
 };
 
-void afficher(const Etudiant& e) {
-    cout << e.nom << endl;
-    cout << "age: " << e.age << " ans" << endl;
-    cout << "Matieres:" << endl;
-    for (size_t i = 0; i < e.matieres.size(); ++i) {
-        afficher(e.matieres[i]);
-    }
-    cout << endl;
-}
+//void afficher(const Etudiant& e) {
+//    cout << e.nom << endl;
+//    cout << "age: " << e.age << " ans" << endl;
+//    cout << "Matieres:" << endl;
+//    for (size_t i = 0; i < e.matieres.size(); ++i) {
+//        afficher(e.matieres[i]);
+//    }
+//    cout << endl;
+//}
 
 int main()
 {
-    Cours poo { "POO", 6 };
-
-    Cours progPar = { "ProgPar", 4 };
 
     Cours progFun;
-    progFun.nom = "ProgFun";
-    progFun.credits = 4;
+    progFun.setNom("ProgFun");
+    progFun.setCredits(4);
+    progFun.afficher();
+
+    Cours poo;
+    poo.setNom("POO");
+    Cours progPar;
+    progPar.setNom("ProgPar");
+    progPar.setCredits(4);
+
+    poo.afficher();
+    progPar.afficher();
+    progFun.afficher();
+};
+
+  /*  Cours progPar = { "ProgPar", 4 };
+
+
 
     vector<Cours> matieresJean = { poo, progPar };
     Etudiant jean = { "Jean", 20, matieresJean };
@@ -55,5 +80,4 @@ int main()
     poo.nom = "OOP";
 
     afficher(jean);
-    afficher(pierre);
-}
+    afficher(pierre);*/
