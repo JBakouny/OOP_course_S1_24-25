@@ -59,65 +59,24 @@ private:
 
 int main()
 {
-    int x = 2;
-    int const & r = x;
-    int const * const p = &x;
+    Cours progPar = { "ProgPar", 4 };
+    Cours progFun{ "ProgFun", 4 };
+    Cours poo("POO", 6);
 
-    x++;
+    Etudiant jean = { "Jean", 20 };
+    Etudiant pierre { "Pierre", 21 };
 
-    cout << r << endl;
-    cout << x << endl;
+    jean.add(poo);
+    jean.add(progPar);
 
-    cout << p << endl;
-    cout << *p << endl;
+    pierre.add(poo);
+    pierre.add(progFun);
 
-    int y = 5;
-    p = &y;
+    jean.afficher();
+    pierre.afficher();
 
-    cout << p << endl;
-    cout << *p << endl;
+    poo.setNom("OOP");
 
-
-    //Cours progPar = { "ProgPar", 4 };
-    //Cours progFun{ "ProgFun", 4 };
-    //Cours poo("POO", 6);
-
-    //Etudiant jean = { "Jean", 20 };
-    //Etudiant pierre { "Pierre", 21 };
-
-    //jean.add(poo);
-    //jean.add(progPar);
-
-    //pierre.add(poo);
-    //pierre.add(progFun);
-
-    //jean.afficher();
-    //pierre.afficher();
-
-    //poo.setNom("OOP");
-
-    //jean.afficher();
-    //pierre.afficher();
+    jean.afficher();
+    pierre.afficher();
 };
-
-  /*  
-
-
-
-    vector<Cours> matieresJean = { poo, progPar };
-
-
-    Etudiant pierre;
-    pierre.nom = "Pierre";
-    pierre.age = 21;
-
-    pierre.matieres.push_back(poo);
-    pierre.matieres.push_back(progFun);
-
-    afficher(jean);
-    afficher(pierre);
-
-    poo.nom = "OOP";
-
-    afficher(jean);
-    afficher(pierre);*/
