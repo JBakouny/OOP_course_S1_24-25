@@ -59,26 +59,45 @@ private:
 
 int main()
 {
-    Cours progPar = { "ProgPar", 4 };
-    Cours progFun{ "ProgFun", 4 };
-    Cours poo("POO", 6);
+    int x = 2;
+    int const & r = x;
+    int const * const p = &x;
 
-    Etudiant jean = { "Jean", 20 };
-    Etudiant pierre { "Pierre", 21 };
+    x++;
 
-    jean.add(poo);
-    jean.add(progPar);
+    cout << r << endl;
+    cout << x << endl;
 
-    pierre.add(poo);
-    pierre.add(progFun);
+    cout << p << endl;
+    cout << *p << endl;
 
-    jean.afficher();
-    pierre.afficher();
+    int y = 5;
+    p = &y;
 
-    poo.setNom("OOP");
+    cout << p << endl;
+    cout << *p << endl;
 
-    jean.afficher();
-    pierre.afficher();
+
+    //Cours progPar = { "ProgPar", 4 };
+    //Cours progFun{ "ProgFun", 4 };
+    //Cours poo("POO", 6);
+
+    //Etudiant jean = { "Jean", 20 };
+    //Etudiant pierre { "Pierre", 21 };
+
+    //jean.add(poo);
+    //jean.add(progPar);
+
+    //pierre.add(poo);
+    //pierre.add(progFun);
+
+    //jean.afficher();
+    //pierre.afficher();
+
+    //poo.setNom("OOP");
+
+    //jean.afficher();
+    //pierre.afficher();
 };
 
   /*  
