@@ -1,70 +1,14 @@
-#include <iostream>
-#include <string>
-#include <vector>
-using namespace std;
-
-class Cours {
-public:
-    Cours(const string& nom, int credits)
-        : nom(nom), credits(credits)
-    {
-    }
-
-    void afficher() const {
-        cout << "Cours: " << nom << ", credits: " << credits << endl;
-    }
-
-    void setNom(const string & nom) {
-        this->nom = nom;
-    }
-
-    void setCredits(int c) {
-        credits = c;
-    }
-
-private:
-    string nom;
-    int credits;
-};
-
-
-
-
-class Etudiant {
-public:
-    Etudiant(const string& nom, int age)
-        : nom(nom), age(age)
-    {}
-
-    void add(const Cours& c) {
-        matieres.push_back(&c);
-    }
-
-    void afficher() const {
-        cout << nom << endl;
-        cout << "age: " << age << " ans" << endl;
-        cout << "Matieres:" << endl;
-        for (const Cours* c : matieres) {
-            c->afficher();
-        }
-        cout << endl;
-    }
-private:
-    string nom;
-    int age;
-    vector<const Cours*> matieres;
-};
-
-
+#include "Course.h"
+#include "Student.h"
 
 int main()
 {
-    Cours progPar = { "ProgPar", 4 };
-    Cours progFun{ "ProgFun", 4 };
-    Cours poo("POO", 6);
+    Course progPar = { "ProgPar", 4 };
+    Course progFun{ "ProgFun", 4 };
+    Course poo("POO", 6);
 
-    Etudiant jean = { "Jean", 20 };
-    Etudiant pierre { "Pierre", 21 };
+    Student jean = { "Jean", 20 };
+    Student pierre { "Pierre", 21 };
 
     jean.add(poo);
     jean.add(progPar);
@@ -75,7 +19,7 @@ int main()
     jean.afficher();
     pierre.afficher();
 
-    poo.setNom("OOP");
+    poo.setName("OOP");
 
     jean.afficher();
     pierre.afficher();
