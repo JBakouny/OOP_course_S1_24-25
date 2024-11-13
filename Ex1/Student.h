@@ -1,7 +1,8 @@
 #pragma once
+#include "Student_fwd.h"
 #include <iostream>
 #include <string>
-#include "Course.h"
+#include "Course_fwd.h"
 #include <vector>
 
 class Student {
