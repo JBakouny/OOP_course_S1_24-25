@@ -7,7 +7,7 @@
 
 class Course {
 public:
-    Course(const std::string& name, int credits);
+    Course(const std::string& name, int credits = 4);
 
     void afficher() const;
 
